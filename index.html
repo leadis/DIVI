@@ -3,490 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expérience Visuelle Époustouflante</title>
+    <title>Offre spéciale pour les utilisateurs de Quora</title>
+    <meta name="description" content="Recevez votre iPhone 16 Pro en cadeau - Offre limitée">
     <style>
-        /* Reset et base */
+        /* CSS Reset et Variables */
+        :root {
+            --primary: #0071e3;
+            --primary-dark: #0062c4;
+            --secondary: #34c759;
+            --dark: #1d1d1f;
+            --light: #f5f5f7;
+            --gradient: linear-gradient(135deg, #0071e3 0%, #34c759 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #00cec9;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --accent: #fd79a8;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            perspective: 1000px;
-        }
-
-        /* Animations de base */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes colorShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Layout principal */
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        /* Particules de fond */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        /* Header stylé */
-        header {
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: pulse 4s infinite;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero section */
-        .hero {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 0 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(to right, var(--light), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typographie */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 1.5rem;
             opacity: 0.9;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50px;
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 120px;
+            text-align: center;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLCAxMTMsIDIyNywgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: -1;
         }
 
-        .cta-button:hover::before {
-            left: 100%;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50%;
-            max-width: 700px;
-            z-index: 1;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .hero-image img {
             width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
         }
 
-        /* Section features */
-        .features {
-            padding: 5rem;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
-            opacity: 0.3;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2.5rem;
-            font-family: 'Playfair Display', serif;
-            position: relative;
+        /* Boutons */
+        .btn {
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            margin: 10px 5px;
+            text-align: center;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 3px;
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 113, 227, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 199, 89, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.1));
-            z-index: -1;
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
             background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonials h2 {
             color: white;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 30px auto;
+            box-shadow: var(--shadow);
         }
 
-        .feature-card p {
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        /* Section parallax */
-        .parallax {
-            height: 500px;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
+        .testimonial-author {
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            margin-top: 20px;
         }
 
-        .parallax::before {
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLCAxMTMsIDIyNywgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            position: relative;
+        }
+
+        .cta::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .parallax-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 2rem;
-        }
-
-        .parallax h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(to right, var(--light), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Section contact */
-        .contact {
-            padding: 5rem;
-            background: var(--dark);
-            position: relative;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(108, 92, 231, 0.1), transparent 70%);
-            animation: rotate 20s linear infinite;
+            background: rgba(255, 255, 255, 0.95);
             z-index: -1;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            font-size: 1rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3rem;
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
             text-align: center;
-            position: relative;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
+        .footer-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            color: var(--light);
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 15px;
             text-decoration: none;
-            font-size: 1.2rem;
+            transition: var(--transition);
         }
 
-        .social-link:hover {
-            background: var(--gradient);
-            transform: translateY(-5px);
+        .footer-link:hover {
+            color: white;
         }
 
         .copyright {
@@ -494,387 +303,294 @@
             font-size: 0.9rem;
         }
 
-        /* Effets spéciaux */
-        .glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary), transparent 70%);
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .glow-1 {
-            top: -150px;
-            left: -150px;
-            animation: float 8s infinite ease-in-out;
-        }
-
-        .glow-2 {
-            bottom: -100px;
-            right: -100px;
-            background: radial-gradient(circle, var(--secondary), transparent 70%);
-            animation: float 10s infinite ease-in-out 2s;
-        }
-
-        /* Animation scroll */
-        .scroll-animate {
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 350px;
+            transform: translateY(100px);
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10000;
+            display: none;
         }
 
-        .scroll-animate.visible {
-            opacity: 1;
+        .notification.show {
             transform: translateY(0);
+            opacity: 1;
+            display: block;
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+            opacity: 0.5;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+        }
+
+        .animate.animated {
+            animation: fadeInUp 1s ease forwards;
         }
 
         /* Responsive */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                padding: 2rem;
-                text-align: center;
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
             }
 
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 3rem;
+            .btn {
+                padding: 12px 25px;
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .btn-group {
+                flex-direction: column;
             }
 
             .hero-image {
-                position: relative;
-                width: 100%;
-                max-width: 500px;
-                transform: none;
-                margin-top: 2rem;
+                max-width: 90%;
             }
 
-            .features, .contact {
-                padding: 3rem 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .parallax h2 {
-                font-size: 2rem;
+            .notification {
+                max-width: calc(100% - 40px);
+                right: 20px;
+                left: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Effets de fond -->
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="particles" id="particles"></div>
-
-        <!-- Header -->
-        <header>
-            <div class="logo">CREA<span style="color: var(--accent);">TIVE</span></div>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">iGift</a>
             <nav>
-                <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#features">Fonctionnalités</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <a href="#features" class="btn btn-outline">Détails</a>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- Section Hero -->
-        <section class="hero" id="home">
-            <div class="hero-content scroll-animate">
-                <h1>Découvrez une Expérience Visuelle Époustouflante</h1>
-                <p>Plongez dans un univers où design et technologie se rencontrent pour créer quelque chose de véritablement unique et mémorable.</p>
-                <a href="#contact" class="cta-button">Commencer l'aventure</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="animate">Offre spéciale pour les utilisateurs de Quora</h1>
+            <p class="animate" style="animation-delay: 0.2s">Gagnez un iPhone 16 Pro gratuitement en participant à notre offre exclusive limitée dans le temps.</p>
+            
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzAwNzFlMyIgcng9IjMwIi8+PHBhdGggZD0iTTI1NiAzMDRjMjYuNSAwIDQ4LTIxLjUgNDgtNDhzLTIxLjUtNDgtNDgtNDgtNDggMjEuNS00OCA0OCAyMS41IDQ4IDQ4IDQ4eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0zNjggMTYwSDE0NGMtMjYuNSAwLTQ4IDIxLjUtNDggNDh2OTZjMCAyNi41IDIxLjUgNDggNDggNDhoMjI0YzI2LjUgMCA0OC0yMS41IDQ4LTQ4di05NmMwLTI2LjUtMjEuNS00OC00OC00OHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+" alt="iPhone 16 Pro" class="hero-image">
+            
+            <div class="btn-group">
+                <a href="#cta" class="btn btn-primary animate" style="animation-delay: 0.4s">Je veux mon iPhone 🎁</a>
+                <a href="#features" class="btn btn-outline animate" style="animation-delay: 0.5s">En savoir plus</a>
             </div>
-            <div class="hero-image scroll-animate">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00cec9;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#grad1)" d="M250,100 C350,50 450,150 400,250 C350,350 250,400 150,350 C50,300 100,150 250,100 Z" />
-                    <path fill="#fd79a8" d="M250,200 C300,180 350,220 330,270 C310,320 250,330 220,290 C190,250 200,220 250,200 Z" />
-                    <circle cx="250" cy="250" r="50" fill="white" opacity="0.8" />
-                </svg>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section Features -->
-        <section class="features" id="features">
-            <h2 class="section-title scroll-animate">Nos Atouts Exceptionnels</h2>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="animate">Pourquoi cette offre est exceptionnelle</h2>
+            <p class="animate" style="animation-delay: 0.2s">Nous offrons une opportunité unique aux utilisateurs de Quora de recevoir le tout dernier iPhone 16 Pro gratuitement.</p>
+            
             <div class="features-grid">
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">✧</div>
-                    <h3>Design Immersif</h3>
-                    <p>Une expérience utilisateur soigneusement conçue qui captive et engage vos visiteurs dès le premier regard.</p>
+                <div class="feature-card animate" style="animation-delay: 0.3s">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Technologie de pointe</h3>
+                    <p>L'iPhone 16 Pro avec le nouveau chipset A18, écran ProMotion et caméra avancée.</p>
                 </div>
-                <div class="feature-card scroll-animate" style="transition-delay: 0.2s">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Performances Optimales</h3>
-                    <p>Technologies de pointe garantissant des chargements ultra-rapides et une fluidité parfaite.</p>
+                
+                <div class="feature-card animate" style="animation-delay: 0.4s">
+                    <div class="feature-icon">🎁</div>
+                    <h3>100% Gratuit</h3>
+                    <p>Aucun coût caché. Vous ne payez que les frais de port symboliques.</p>
                 </div>
-                <div class="feature-card scroll-animate" style="transition-delay: 0.4s">
-                    <div class="feature-icon">∞</div>
-                    <h3>Animations Dynamiques</h3>
-                    <p>Des effets visuels sophistiqués qui donnent vie à votre contenu sans compromettre les performances.</p>
+                
+                <div class="feature-card animate" style="animation-delay: 0.5s">
+                    <div class="feature-icon">⏳</div>
+                    <h3>Offre limitée</h3>
+                    <p>Seulement 50 appareils disponibles pour les utilisateurs de Quora.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section Parallax -->
-        <section class="parallax" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')">
-            <div class="parallax-content scroll-animate">
-                <h2>L'Art Rencontre la Technologie</h2>
-                <p>Notre approche unique combine créativité artistique et expertise technique pour des résultats qui dépassent les attentes.</p>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="animate">Ils ont déjà profité de l'offre</h2>
+            
+            <div class="testimonial-card animate" style="animation-delay: 0.2s">
+                <p>"Je n'arrivais pas à y croire quand j'ai reçu mon iPhone 16 Pro. Le processus était simple et rapide. Merci !"</p>
+                <div class="testimonial-author">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzM0YzU1OSIvPjxjaXJjbGUgY3g9IjM1IiBjeT0iNDAiIHI9IjgiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI2NSIgY3k9IjQwIiByPSI4IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTM1IDY1cTAgMTUgMzAgMTV0MzAtMTUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIi8+PC9zdmc+" alt="Avatar" class="author-avatar">
+                    <div>
+                        <h4>Marie D.</h4>
+                        <p>Utilisatrice Quora</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section Contact -->
-        <section class="contact" id="contact">
-            <h2 class="section-title scroll-animate">Prêt à Transformer Votre Vision ?</h2>
-            <form class="contact-form scroll-animate">
-                <div class="form-group">
-                    <label for="name">Votre Nom</label>
-                    <input type="text" id="name" class="form-control" required>
+    <!-- CTA Section -->
+    <section id="cta" class="cta">
+        <div class="container cta-content">
+            <h2 class="animate">Ne ratez pas cette opportunité unique</h2>
+            <p class="animate" style="animation-delay: 0.2s">Les stocks sont très limités. Agissez maintenant pour recevoir votre iPhone 16 Pro gratuitement.</p>
+            
+            <div class="btn-group">
+                <a href="#form" class="btn btn-primary btn-lg animate" style="animation-delay: 0.3s">Je réclame mon iPhone 🎁</a>
+                <a href="#features" class="btn btn-secondary animate" style="animation-delay: 0.4s">Comment ça marche ?</a>
+            </div>
+            
+            <p class="animate" style="animation-delay: 0.5s; font-size: 0.9rem; margin-top: 30px;">⚠️ Offre valable uniquement pour les 50 premiers participants</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="form-section" style="background: white; padding: 60px 0;">
+        <div class="container" style="max-width: 600px;">
+            <h2 class="animate">Finalisez votre demande</h2>
+            <p class="animate" style="animation-delay: 0.2s">Remplissez ce formulaire pour recevoir votre iPhone 16 Pro gratuitement.</p>
+            
+            <form id="gift-form" class="animate" style="animation-delay: 0.3s; margin-top: 30px;">
+                <div style="margin-bottom: 20px;">
+                    <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Nom complet</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
                 </div>
-                <div class="form-group">
-                    <label for="email">Votre Email</label>
-                    <input type="email" id="email" class="form-control" required>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
                 </div>
-                <div class="form-group">
-                    <label for="message">Votre Message</label>
-                    <textarea id="message" class="form-control" required></textarea>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500;">Téléphone</label>
+                    <input type="tel" id="phone" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
                 </div>
-                <button type="submit" class="submit-btn">Envoyer le Message</button>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="address" style="display: block; margin-bottom: 8px; font-weight: 500;">Adresse de livraison</label>
+                    <textarea id="address" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; min-height: 100px;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Valider ma demande</button>
             </form>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="social-links">
-                    <a href="#" class="social-link"><i>f</i></a>
-                    <a href="#" class="social-link"><i>in</i></a>
-                    <a href="#" class="social-link"><i>t</i></a>
-                    <a href="#" class="social-link"><i>ig</i></a>
-                </div>
-                <p class="copyright">© 2023 Creative Design. Tous droits réservés.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Conditions générales</a>
+                <a href="#" class="footer-link">Politique de confidentialité</a>
+                <a href="#" class="footer-link">Contact</a>
             </div>
-        </footer>
+            <p class="copyright">© 2023 iGift. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-header">
+            <h3 class="notification-title">Dernière chance ! ⏳</h3>
+            <button class="notification-close">&times;</button>
+        </div>
+        <p>Seulement 3 iPhones 16 Pro restants ! Ne ratez pas cette opportunité unique.</p>
+        <a href="#form" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">Je veux le mien</a>
     </div>
 
+    <!-- Scripts -->
     <script>
-        // Création des particules
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Taille aléatoire
-                const size = Math.random() * 5 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Position aléatoire
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Opacité aléatoire
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                // Animation aléatoire
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
         // Animation au scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.scroll-animate');
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
             
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        // Effet de dégradé animé sur le bouton CTA
-        function animateGradient() {
-            const ctaButton = document.querySelector('.cta-button');
-            if (!ctaButton) return;
-            
-            let angle = 0;
-            setInterval(() => {
-                angle = (angle + 1) % 360;
-                ctaButton.style.background = `linear-gradient(${angle}deg, #6c5ce7, #00cec9)`;
-            }, 50);
-        }
-        
-        // Effet de saisie automatique pour le titre
-        function typeWriterEffect() {
-            const title = document.querySelector('.hero h1');
-            if (!title) return;
-            
-            const originalText = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function type() {
-                if (i < originalText.length) {
-                    title.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(type, Math.random() * 100 + 50);
-                }
-            }
-            
-            setTimeout(type, 1000);
-        }
-        
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            animateGradient();
-            typeWriterEffect();
-            
-            // Animation initiale
-            setTimeout(() => {
-                animateOnScroll();
-            }, 500);
-        });
-        
-        // Écouteur de scroll
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Effet de curseur personnalisé
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor');
-            if (cursor) {
-                cursor.style.left = `${e.clientX}px`;
-                cursor.style.top = `${e.clientY}px`;
-            }
-        });
-        
-        // Effet sur les liens
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                document.body.style.cursor = 'pointer';
-            });
-            link.addEventListener('mouseleave', () => {
-                document.body.style.cursor = 'default';
-            });
-        });
-        
-        // Animation du formulaire
-        const formInputs = document.querySelectorAll('.form-control');
-        formInputs.forEach(input => {
-            input.addEventListener('focus', () => {
-                input.parentElement.style.transform = 'scale(1.02)';
-                input.parentElement.style.zIndex = '10';
-            });
-            input.addEventListener('blur', () => {
-                input.parentElement.style.transform = 'scale(1)';
-                input.parentElement.style.zIndex = '1';
-            });
-        });
-        
-        // Confirmation d'envoi du formulaire
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Animation de succès
-                contactForm.innerHTML = `
-                    <div style="text-align: center; padding: 2rem;">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 1.5rem;">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#00cec9"/>
-                        </svg>
-                        <h3 style="color: #00cec9; margin-bottom: 1rem;">Message envoyé avec succès !</h3>
-                        <p>Nous vous contacterons très rapidement.</p>
-                    </div>
-                `;
-                
-                // Effet de confettis
-                createConfetti();
-            });
-        }
-        
-        // Fonction de confettis
-        function createConfetti() {
-            const confettiContainer = document.createElement('div');
-            confettiContainer.style.position = 'fixed';
-            confettiContainer.style.top = '0';
-            confettiContainer.style.left = '0';
-            confettiContainer.style.width = '100%';
-            confettiContainer.style.height = '100%';
-            confettiContainer.style.pointerEvents = 'none';
-            confettiContainer.style.zIndex = '1000';
-            document.body.appendChild(confettiContainer);
-            
-            const colors = ['#6c5ce7', '#00cec9', '#fd79a8', '#fdcb6e', '#a29bfe'];
-            
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.borderRadius = '50%';
-                confetti.style.left = `${Math.random() * 100}%`;
-                confetti.style.top = '-10px';
-                confetti.style.opacity = '0.8';
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                
-                const animation = confetti.animate([
-                    { top: '-10px', opacity: 0 },
-                    { top: `${Math.random() * 100}%`, opacity: 0.8 },
-                    { top: '100%', opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
-                    delay: Math.random() * 1000
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
                 });
-                
-                confettiContainer.appendChild(confetti);
-                
-                animation.onfinish = () => {
-                    confetti.remove();
-                };
-            }
+            }, {
+                threshold: 0.1
+            });
             
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Notification après 5 secondes
             setTimeout(() => {
-                confettiContainer.remove();
+                document.getElementById('notification').classList.add('show');
             }, 5000);
-        }
+            
+            // Fermer la notification
+            document.querySelector('.notification-close').addEventListener('click', function() {
+                document.getElementById('notification').classList.remove('show');
+            });
+            
+            // Empêcher le retour en arrière
+            window.onbeforeunload = function() {
+                document.getElementById('notification').classList.add('show');
+                return "Voulez-vous vraiment quitter ? C'est votre dernière chance de gagner un iPhone 16 Pro gratuitement !";
+            };
+            
+            // Gestion du formulaire
+            document.getElementById('gift-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Félicitations ! Votre demande a été enregistrée. Nous vous contacterons sous peu pour finaliser votre cadeau.');
+                window.location.href = '#';
+            });
+            
+            // Optimisation pour les performances
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    }).catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
