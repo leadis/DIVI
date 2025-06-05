@@ -410,54 +410,147 @@
             margin-top: 20px;
         }
 
-        /* Notification */
+        /* Nouveaux styles pour la notification améliorée */
         .notification {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: var(--white);
-            color: var(--text);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 350px;
-            transform: translateY(100px);
+            background: linear-gradient(135deg, #ff9a00, #ff5e00);
+            color: white;
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(255, 94, 0, 0.3);
+            max-width: 380px;
+            transform: translateX(120%);
             opacity: 0;
-            transition: var(--transition);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             z-index: 1000;
+            overflow: hidden;
             display: flex;
-            align-items: flex-start;
+            border: 2px solid white;
         }
 
         .notification.show {
-            transform: translateY(0);
+            transform: translateX(0);
             opacity: 1;
         }
 
         .notification-close {
-            background: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
-            color: var(--text-light);
-            font-size: 1.2rem;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            margin-left: 15px;
-            padding: 0 5px;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .notification-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
         }
 
         .notification-icon {
-            font-size: 1.5rem;
-            color: var(--warning);
-            margin-right: 15px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .notification-content {
+            padding: 25px;
+            padding-right: 40px;
+            position: relative;
+            flex: 1;
         }
 
         .notification-content h4 {
-            margin-bottom: 5px;
-            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .notification-content p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .notification-btn {
+            display: inline-block;
+            background: white;
+            color: #ff5e00;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
             font-size: 0.9rem;
-            color: var(--text-light);
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .notification-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification-pulse {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+
+        /* Animation d'entrée spéciale */
+        @keyframes slideInRight {
+            from { transform: translateX(120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(120%); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .notification {
+                max-width: calc(100% - 30px);
+                right: 15px;
+                bottom: 15px;
+                flex-direction: column;
+            }
+            
+            .notification-icon {
+                padding: 15px;
+                font-size: 1.5rem;
+            }
+            
+            .notification-content {
+                padding: 20px;
+            }
         }
 
         /* Exit Intent Popup */
@@ -576,7 +669,6 @@
                 left: 20px;
                 bottom: 10px;
             }
-        }
 
         /* Animation Classes */
         .animate-delay-1 {
@@ -712,14 +804,18 @@
         </div>
     </footer>
 
-    <!-- Notification -->
+    <!-- Nouvelle version améliorée de la notification -->
     <div class="notification" id="notification">
+        <div class="notification-pulse"></div>
         <div class="notification-icon">
-            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-gift"></i>
         </div>
         <div class="notification-content">
-            <h4>Offre limitée !</h4>
-            <p>Ne ratez pas votre chance de gagner un iPhone 16 Pro. Seulement quelques unités disponibles.</p>
+            <h4>🎁 Dernière chance pour votre iPhone 16 Pro !</h4>
+            <p>Seulement 3 appareils disponibles pour les utilisateurs Quora aujourd'hui. Ne manquez pas cette opportunité exclusive !</p>
+            <a href="#participate" class="notification-btn">
+                Je le veux ! <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
         <button class="notification-close" id="closeNotification">
             <i class="fas fa-times"></i>
@@ -761,17 +857,44 @@
             }, 1000);
         }
         
-        // Show Notification after 5 seconds
+        // Nouvelle version améliorée de la fonction showNotification
         function showNotification() {
             setTimeout(() => {
                 const notification = document.getElementById('notification');
-                notification.classList.add('show');
+                
+                // Vérifier si l'utilisateur n'a pas déjà fermé la notification
+                if (!localStorage.getItem('notificationClosed')) {
+                    notification.style.display = 'flex';
+                    setTimeout(() => {
+                        notification.classList.add('show');
+                    }, 100);
+                    
+                    // Animation de balancement après 3 secondes
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(0) rotate(-2deg)';
+                        setTimeout(() => {
+                            notification.style.transform = 'translateX(0) rotate(2deg)';
+                            setTimeout(() => {
+                                notification.style.transform = 'translateX(0) rotate(0deg)';
+                            }, 200);
+                        }, 200);
+                    }, 3000);
+                }
             }, 5000);
         }
         
-        // Close Notification
+        // Fermeture améliorée de la notification
         document.getElementById('closeNotification').addEventListener('click', function() {
-            document.getElementById('notification').classList.remove('show');
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            notification.style.animation = 'slideOutRight 0.6s forwards';
+            
+            // Stocker en localStorage que l'utilisateur a fermé la notification
+            localStorage.setItem('notificationClosed', 'true');
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 600);
         });
         
         // Exit Intent Popup
