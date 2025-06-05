@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -553,22 +554,21 @@
             }
         }
 
-        /* Nouveaux styles pour le popup amélioré */
+        /* Exit Intent Popup */
         .exit-popup {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(5px);
+            transition: var(--transition);
         }
 
         .exit-popup.show {
@@ -577,161 +577,43 @@
         }
 
         .exit-popup-content {
-            background: linear-gradient(145deg, #ffffff, #f8f8f8);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
             width: 90%;
             text-align: center;
             position: relative;
-            transform: scale(0.8) translateY(50px);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            overflow: hidden;
+            transform: scale(0.9);
+            transition: var(--transition);
         }
 
         .exit-popup.show .exit-popup-content {
-            transform: scale(1) translateY(0);
+            transform: scale(1);
         }
 
         .exit-popup-close {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(0, 0, 0, 0.1);
+            background: none;
             border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            color: #666;
-        }
-
-        .exit-popup-close:hover {
-            background: rgba(0, 0, 0, 0.2);
-            transform: rotate(90deg);
-            color: #333;
+            color: var(--text-light);
         }
 
         .exit-popup h3 {
             font-family: 'Playfair Display', serif;
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .exit-popup h3:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary), #ff9a00);
-            border-radius: 3px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
         .exit-popup p {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: var(--text-light);
-            font-size: 1.1rem;
-            line-height: 1.6;
         }
-
-        .exit-popup-img {
-            width: 180px;
-            margin: 0 auto 25px;
-            filter: drop-shadow(0 10px 20px rgba(0, 113, 227, 0.3));
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .popup-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .popup-btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: none;
-            min-width: 180px;
-        }
-
-        .popup-btn-primary {
-            background: linear-gradient(to right, var(--primary), #0062c4);
-            color: white;
-        }
-
-        .popup-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 113, 227, 0.4);
-            background: linear-gradient(to right, #0062c4, var(--primary));
-        }
-
-        .popup-btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .popup-btn-secondary:hover {
-            background-color: rgba(0, 113, 227, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .popup-counter {
-            background-color: #ff3b30;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            animation: pulse 2s infinite;
-        }
-
-        /* Effet de confettis */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            .exit-popup-content {
-                padding: 30px 20px;
-            }
-            
-            .exit-popup h3 {
-                font-size: 1.8rem;
-            }
-            
-            .popup-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .popup-btn {
-                width: 100%;
-            }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
@@ -941,30 +823,17 @@
         </button>
     </div>
 
-    <!-- Nouvelle version améliorée du popup -->
+    <!-- Exit Intent Popup -->
     <div class="exit-popup" id="exitPopup">
         <div class="exit-popup-content">
             <button class="exit-popup-close" id="closePopup">
                 <i class="fas fa-times"></i>
             </button>
-            
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3MWUzIiBkPSJNNDY0IDY0SDQ4QTI0IDI0IDAgMCAwIDI0IDg4djMzNmEyNCAyNCAwIDAgMCAyNCAyNGg0MTZhMjQgMjQgMCAwIDAgMjQtMjRWODhhMjQgMjQgMCAwIDAtMjQtMjR6bS0yNCAzNjBINzJWOTZoMzY4djMyOHoiLz48cGF0aCBmaWxsPSIjMDA3MWUzIiBkPSJNMzUyIDE2MEgxNjBhMTYgMTYgMCAwIDAtMTYgMTZ2MTYwYTE2IDE2IDAgMCAwIDE2IDE2aDE5MmExNiAxNiAwIDAgMCAxNi0xNlYxNzZhMTYgMTYgMCAwIDAtMTYtMTZ6Ii8+PHBhdGggZmlsbD0iIzAwNzFlMyIgZD0iTTI3MiAyODBoLTMyYTE2IDE2IDAgMCAwIDAgMzJoMzJhMTYgMTYgMCAwIDAgMC0zMnoiLz48L3N2Zz4=" alt="iPhone 16 Pro" class="exit-popup-img">
-            
-            <div class="popup-counter">
-                <i class="fas fa-clock"></i> Dernières unités disponibles !
-            </div>
-            
-            <h3>🚨 Ne partez pas les mains vides !</h3>
-            <p><strong>Votre iPhone 16 Pro vous attend !</strong> En quittant maintenant, vous passez à côté de cette offre exclusive réservée aux utilisateurs Quora. Seulement 2 appareils sont encore disponibles aujourd'hui.</p>
-            
-            <div class="popup-buttons">
-                <button class="popup-btn popup-btn-primary" id="popupAccept">
-                    <i class="fas fa-gift"></i> Je veux mon iPhone
-                </button>
-                <button class="popup-btn popup-btn-secondary" id="popupDecline">
-                    Non merci, je refuse ce cadeau
-                </button>
-            </div>
+            <h3>Attendez ! Dernière chance 🎁</h3>
+            <p>Vous êtes sur le point de quitter sans réclamer votre iPhone 16 Pro. Les stocks sont presque épuisés - confirmez votre participation maintenant !</p>
+            <a href="#participate" class="btn btn-primary btn-large">
+                Je veux mon iPhone
+            </a>
         </div>
     </div>
 
@@ -1051,144 +920,10 @@
             });
         }
         
-        // Nouvelle version améliorée du popup
-        function setupExitIntent() {
-            let mouseY = 0;
-            let exitIntentShown = false;
-            
-            document.addEventListener('mouseout', function(e) {
-                if (!exitIntentShown && !e.relatedTarget && e.clientY < mouseY && e.clientY < 10) {
-                    showExitPopup();
-                    exitIntentShown = true;
-                }
-                mouseY = e.clientY;
-            });
-            
-            // Détection de la touche Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !exitIntentShown) {
-                    showExitPopup();
-                    exitIntentShown = true;
-                }
-            });
-            
-            // Détection du swipe vers le haut sur mobile
-            let startY = 0;
-            document.addEventListener('touchstart', function(e) {
-                startY = e.touches[0].clientY;
-            }, { passive: true });
-            
-            document.addEventListener('touchend', function(e) {
-                const endY = e.changedTouches[0].clientY;
-                if (startY - endY > 100 && !exitIntentShown) { // swipe vers le haut
-                    showExitPopup();
-                    exitIntentShown = true;
-                }
-            }, { passive: true });
-            
-            // Avant de quitter la page
-            window.addEventListener('beforeunload', function(e) {
-                if (!exitIntentShown) {
-                    e.preventDefault();
-                    e.returnValue = '';
-                    showExitPopup();
-                    exitIntentShown = true;
-                    return "Vous êtes sur le point de quitter sans réclamer votre iPhone 16 Pro. Êtes-vous sûr ?";
-                }
-            });
-        }
-        
         function showExitPopup() {
             const popup = document.getElementById('exitPopup');
             popup.classList.add('show');
             document.body.style.overflow = 'hidden';
-            
-            // Créer des confettis
-            createConfetti();
-        }
-        
-        function createConfetti() {
-            const colors = ['#0071e3', '#ff9a00', '#34c759', '#ff3b30', '#5856d6'];
-            const popupContent = document.querySelector('.exit-popup-content');
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = -10 + 'px';
-                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
-                confetti.style.width = Math.random() * 8 + 5 + 'px';
-                confetti.style.height = Math.random() * 8 + 5 + 'px';
-                popupContent.appendChild(confetti);
-                
-                // Animation des confettis
-                setTimeout(() => {
-                    confetti.style.opacity = '1';
-                    confetti.style.transition = 'all ' + (Math.random() * 3 + 2) + 's ease-out';
-                    confetti.style.top = '100%';
-                    confetti.style.left = Math.random() * 100 + '%';
-                    
-                    // Supprimer après l'animation
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 5000);
-                }, Math.random() * 500);
-            }
-        }
-        
-        document.getElementById('closePopup').addEventListener('click', function() {
-            closePopup();
-        });
-        
-        document.getElementById('popupDecline').addEventListener('click', function() {
-            closePopup();
-            // Afficher une dernière notification de regret
-            showRegretNotification();
-        });
-        
-        document.getElementById('popupAccept').addEventListener('click', function() {
-            closePopup();
-            // Rediriger vers le formulaire de participation
-            window.location.href = "#participate";
-        });
-        
-        function closePopup() {
-            const popup = document.getElementById('exitPopup');
-            popup.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
-        function showRegretNotification() {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <div class="notification-icon">
-                    <i class="fas fa-sad-tear"></i>
-                </div>
-                <div class="notification-content">
-                    <h4>Nous sommes tristes de vous voir partir 😢</h4>
-                    <p>Votre iPhone 16 Pro est toujours disponible si vous changez d'avis...</p>
-                    <a href="#participate" class="notification-btn">
-                        Je reviens ! <i class="fas fa-undo"></i>
-                    </a>
-                </div>
-                <button class="notification-close" id="closeRegretNotification">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 100);
-            
-            document.getElementById('closeRegretNotification').addEventListener('click', function() {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    notification.remove();
-                }, 600);
-            });
         }
         
         document.getElementById('closePopup').addEventListener('click', function() {
