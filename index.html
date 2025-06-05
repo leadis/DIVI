@@ -909,15 +909,7 @@
                 mouseY = e.clientY;
             });
             
-            // Also show when trying to go back
-            window.addEventListener('beforeunload', function(e) {
-                if (!document.getElementById('exitPopup').classList.contains('show')) {
-                    e.preventDefault();
-                    e.returnValue = '';
-                    showExitPopup();
-                    return "Vous êtes sur le point de quitter sans réclamer votre iPhone 16 Pro. Êtes-vous sûr ?";
-                }
-            });
+            
         }
         
         function showExitPopup() {
