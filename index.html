@@ -1,28 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Offre spéciale pour les utilisateurs de Quora - Gagnez un iPhone 16 Pro">
-    <title>Gagnez un iPhone 16 Pro | Offre Quora</title>
+    <meta name="description" content="Offre exclusive Quora - Testez des produits premium et choisissez votre récompense">
+    <!-- Pixel de tracking Facebook (optionnel) -->
+    <meta name="facebook-domain-verification" content="v8st4y8s0n7kqbx71lz9v0w1y5z6tj" />
+    <title>Offre Spéciale Quora | Récompenses Exclusives</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0071e3;
-            --primary-dark: #0062c4;
-            --secondary: #f5f5f7;
-            --text: #1d1d1f;
-            --text-light: #86868b;
+            --primary: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary: #f8f9fa;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
             --white: #ffffff;
             --black: #000000;
-            --success: #34c759;
-            --warning: #ff9500;
-            --error: #ff3b30;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --error: #e74c3c;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
 
@@ -77,16 +78,17 @@
             font-size: 28px;
         }
 
-        .timer {
-            background-color: rgba(0, 0, 0, 0.2);
+        .badge {
+            background-color: rgba(0, 0, 0, 0.15);
             padding: 8px 15px;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
         }
 
-        .timer i {
+        .badge i {
             margin-right: 8px;
         }
 
@@ -95,7 +97,7 @@
             position: relative;
             padding: 60px 0 40px;
             text-align: center;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLCAxMTMsIDIyNywgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSg0NiwgMjA0LCAxMTMsIDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
             overflow: hidden;
         }
 
@@ -106,7 +108,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
             z-index: -1;
         }
 
@@ -140,15 +142,15 @@
             animation: fadeInUp 0.8s ease 0.2s both;
         }
 
-        .iphone-image {
-            max-width: 300px;
+        .gifts-image {
+            max-width: 400px;
             margin: 0 auto 30px;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
             animation: float 4s ease-in-out infinite;
             transition: var(--transition);
         }
 
-        .iphone-image:hover {
+        .gifts-image:hover {
             transform: translateY(-5px);
         }
 
@@ -192,7 +194,7 @@
         .btn-primary:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 113, 227, 0.3);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.3);
         }
 
         .btn-secondary {
@@ -220,6 +222,54 @@
 
         .btn-icon i {
             margin-left: 8px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 40px 0;
+            background-color: var(--white);
+        }
+
+        .testimonial-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(46, 204, 113, 0.1);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
         }
 
         /* Features Section */
@@ -378,6 +428,35 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        /* Counter Section */
+        .counter-section {
+            background-color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .counter-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .counter-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .counter-item {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            min-width: 60px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--text);
@@ -411,16 +490,16 @@
             margin-top: 20px;
         }
 
-        /* Nouveaux styles pour la notification améliorée */
+        /* Notification */
         .notification {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #ff9a00, #ff5e00);
+            background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
             padding: 0;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(255, 94, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.3);
             max-width: 380px;
             transform: translateX(120%);
             opacity: 0;
@@ -492,7 +571,7 @@
         .notification-btn {
             display: inline-block;
             background: white;
-            color: #ff5e00;
+            color: #d35400;
             padding: 8px 20px;
             border-radius: 50px;
             font-weight: 600;
@@ -516,42 +595,6 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.8; }
-            70% { transform: scale(1.3); opacity: 0; }
-            100% { transform: scale(0.8); opacity: 0; }
-        }
-
-        /* Animation d'entrée spéciale */
-        @keyframes slideInRight {
-            from { transform: translateX(120%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideOutRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(120%); opacity: 0; }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .notification {
-                max-width: calc(100% - 30px);
-                right: 15px;
-                bottom: 15px;
-                flex-direction: column;
-            }
-            
-            .notification-icon {
-                padding: 15px;
-                font-size: 1.5rem;
-            }
-            
-            .notification-content {
-                padding: 20px;
-            }
         }
 
         /* Exit Intent Popup */
@@ -630,8 +673,8 @@
                 padding: 40px 0 20px;
             }
 
-            .iphone-image {
-                max-width: 220px;
+            .gifts-image {
+                max-width: 280px;
             }
 
             .btn {
@@ -670,6 +713,7 @@
                 left: 20px;
                 bottom: 10px;
             }
+        }
 
         /* Animation Classes */
         .animate-delay-1 {
@@ -683,6 +727,26 @@
         .animate-delay-3 {
             animation-delay: 0.6s;
         }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+            z-index: 999;
+            display: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-cta.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -690,93 +754,130 @@
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-gift"></i>
-                <span>QuoraOffre</span>
+                <span>QuoraRewards</span>
             </div>
-            <div class="timer">
-                <i class="fas fa-clock"></i>
-                <span id="countdown">05:00</span>
+            <div class="badge">
+                <i class="fas fa-user-shield"></i>
+                <span>Exclusif aux membres Quora</span>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>Offre spéciale pour les utilisateurs de Quora</h1>
-            <p class="subtitle">Gagnez un tout nouveau iPhone 16 Pro simplement en participant à notre offre exclusive réservée aux membres de la communauté Quora.</p>
+            <h1>Votre accès aux offres premium est confirmé !</h1>
+            <p class="subtitle">En tant qu'utilisateur actif de Quora, testez des services sélectionnés et choisissez votre récompense : carte cadeau, produit high-tech ou bonus exclusif.</p>
             
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3MWUzIiBkPSJNNDY0IDY0SDQ4QTI0IDI0IDAgMCAwIDI0IDg4djMzNmEyNCAyNCAwIDAgMCAyNCAyNGg0MTZhMjQgMjQgMCAwIDAgMjQtMjRWODhhMjQgMjQgMCAwIDAtMjQtMjR6bS0yNCAzNjBINzJWOTZoMzY4djMyOHoiLz48cGF0aCBmaWxsPSIjMDA3MWUzIiBkPSJNMzUyIDE2MEgxNjBhMTYgMTYgMCAwIDAtMTYgMTZ2MTYwYTE2IDE2IDAgMCAwIDE2IDE2aDE5MmExNiAxNiAwIDAgMCAxNi0xNlYxNzZhMTYgMTYgMCAwIDAtMTYtMTZ6Ii8+PHBhdGggZmlsbD0iIzAwNzFlMyIgZD0iTTI3MiAyODBoLTMyYTE2IDE2IDAgMCAwIDAgMzJoMzJhMTYgMTYgMCAwIDAgMC0zMnoiLz48L3N2Zz4=" alt="iPhone 16 Pro" class="iphone-image">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMmUjYzM3MSIgZD0iTTQ2NCA2NEg0OEEyNCAyNCAwIDAgMCAyNCA4OHYzMzZhMjQgMjQgMCAwIDAgMjQgMjRoNDE2YTI0IDI0IDAgMCAwIDI0LTI0Vjg4YTI0IDI0IDAgMCAwLTI0LTI0em0tMjQgMzYwSDcyVjk2aDM2OHYzMjh6Ii8+PHBhdGggZmlsbD0iIzJlY2MzNzEiIGQ9Ik0zNTIgMTYwSDE2MGExNiAxNiAwIDAgMC0xNiAxNnYxNjBhMTYgMTYgMCAwIDAgMTYgMTZoMTkyYTE2IDE2IDAgMCAwIDE2LTE2VjE3NmExNiAxNiAwIDAgMC0xNi0xNnoiLz48cGF0aCBmaWxsPSIjMmVjYzM3MSIgZD0iTTI3MiAyODBoLTMyYTE2IDE2IDAgMCAwIDAgMzJoMzJhMTYgMTYgMCAwIDAgMC0zMnoiLz48L3N2Zz4=" alt="Récompenses exclusives" class="gifts-image">
             
             <div class="btn-group">
-                <a href="https://masenkotrkr.com/lena" class="btn btn-primary btn-large btn-icon animate-delay-1">
-                    Participer maintenant <i class="fas fa-arrow-right"></i>
+                <a href="https://www.cpagrip.com/smartlink.php?source=quora" class="btn btn-primary btn-large btn-icon animate-delay-1" id="mainCta">
+                    <i class="fas fa-unlock"></i> Voir les offres (30 secondes)
                 </a>
-                <a href="#details" class="btn btn-secondary btn-large animate-delay-2">
-                    Voir les détails
+                <a href="#how-it-works" class="btn btn-secondary btn-large animate-delay-2">
+                    <i class="fas fa-info-circle"></i> Comment ça marche ?
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="features" id="details">
+    <section class="counter-section">
         <div class="container">
-            <h2 class="section-title">Pourquoi cet iPhone 16 Pro ?</h2>
-            <p class="section-subtitle">Découvrez les fonctionnalités exceptionnelles du tout dernier iPhone</p>
+            <p class="counter-text">Déjà <strong id="participantsCount">1,247</strong> utilisateurs Quora ont profité de cette offre aujourd'hui :</p>
+            <div class="counter-numbers">
+                <div class="counter-item" id="counter1">12</div>
+                <div class="counter-item" id="counter2">48</div>
+                <div class="counter-item" id="counter3">35</div>
+            </div>
+            <p>Nouvelles participations dans les dernières minutes</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ils ont testé et validé</h2>
+            <p class="section-subtitle">Ce que disent les membres Quora qui ont participé</p>
+            
+            <div class="features-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"J'ai simplement testé une application pendant 1 minute et j'ai reçu une carte Amazon de 20€. Merci QuoraRewards !"</p>
+                    <div class="testimonial-author">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyZWNjMzcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTEgMSAwIDAgMC0xLTFINGExIDEgMCAwIDAtMSAxdjIiLz48cGF0aCBkPSJNMTIgM2E3IDcgMCAwIDAgNyA3djVINXYtNWE3IDcgMCAwIDAgNy03eiIvPjwvc3ZnPg==" alt="Profil">
+                        <span>Marc, Paris</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Offre sérieuse ! J'ai choisi le bonus PayPal après avoir complété un questionnaire rapide."</p>
+                    <div class="testimonial-author">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyZWNjMzcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTEgMSAwIDAgMC0xLTFINGExIDEgMCAwIDAtMSAxdjIiLz48cGF0aCBkPSJNMTIgM2E3IDcgMCAwIDAgNyA3djVINXYtNWE3IDcgMCAwIDAgNy03eiIvPjwvc3ZnPg==" alt="Profil">
+                        <span>Sophie, Lyon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Choisissez votre récompense</h2>
+            <p class="section-subtitle">Plusieurs options disponibles selon vos préférences</p>
             
             <div class="features-grid">
                 <div class="feature-card animate-delay-1">
                     <div class="feature-icon">
-                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="feature-title">Système photo révolutionnaire</h3>
-                    <p class="feature-text">Triple caméra professionnelle avec capteur LiDAR pour des photos et vidéos d'une qualité inégalée, même en faible lumière.</p>
+                    <h3 class="feature-title">Produits High-Tech</h3>
+                    <p class="feature-text">Smartphones, écouteurs sans fil ou accessoires technologiques de marque.</p>
                 </div>
                 
                 <div class="feature-card animate-delay-2">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-gift"></i>
                     </div>
-                    <h3 class="feature-title">Puissance extrême</h3>
-                    <p class="feature-text">Nouveau chipset A18 Bionic pour des performances 40% plus rapides et une autonomie record.</p>
+                    <h3 class="feature-title">Cartes Cadeaux</h3>
+                    <p class="feature-text">Amazon, Netflix, Uber ou PayPal utilisables immédiatement.</p>
                 </div>
                 
                 <div class="feature-card animate-delay-3">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3 class="feature-title">Écran ProMotion</h3>
-                    <p class="feature-text">Écran Super Retina XDR de 6,7" avec taux de rafraîchissement adaptatif jusqu'à 120Hz pour une fluidité parfaite.</p>
+                    <h3 class="feature-title">Bonus Cash</h3>
+                    <p class="feature-text">Transfert direct sur votre compte PayPal ou virement bancaire.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works">
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
             <h2 class="section-title">Comment participer ?</h2>
-            <p class="section-subtitle">3 étapes simples pour tenter de gagner votre iPhone 16 Pro</p>
+            <p class="section-subtitle">3 étapes simples pour obtenir votre récompense</p>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3 class="step-title">Inscrivez-vous</h3>
-                        <p>Donnez-nous quelques informations de base pour vérifier votre éligibilité à cette offre.</p>
+                        <h3 class="step-title">Accédez aux offres</h3>
+                        <p>Cliquez sur le bouton "Voir les offres" pour découvrir les partenaires premium disponibles.</p>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3 class="step-title">Consultez notre offre</h3>
-                        <p>Découvrez notre partenaire premium et consultez leur offre pendant au moins 30 secondes.</p>
+                        <h3 class="step-title">Testez un service</h3>
+                        <p>Choisissez une offre qui vous intéresse et complétez l'action requise (inscription, questionnaire, etc.).</p>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3 class="step-title">Recevez votre confirmation</h3>
-                        <p>Si vous êtes sélectionné, vous recevrez une notification par mail pour organiser l'envoi de votre Cadeau🎁.</p>
+                        <h3 class="step-title">Recevez votre récompense</h3>
+                        <p>Une fois validé, sélectionnez votre cadeau et recevez-le sous 48 heures.</p>
                     </div>
                 </div>
             </div>
@@ -785,10 +886,10 @@
 
     <section class="cta" id="participate">
         <div class="container cta-content">
-            <h2>Ne manquez pas cette opportunité unique !</h2>
-            <p>Seulement 50 iPhones 16 Pro disponibles pour les membres Quora. L'offre expire bientôt.</p>
-            <a href="https://masenkotrkr.com/lena" class="btn btn-cta btn-icon">
-                Je veux mon iPhone <i class="fas fa-gift"></i>
+            <h2>Offre limitée aux membres Quora</h2>
+            <p>Cette opportunité est réservée aux utilisateurs actifs de Quora. Ne passez pas à côté !</p>
+            <a href="https://www.cpagrip.com/smartlink.php?source=quora" class="btn btn-cta btn-icon">
+                <i class="fas fa-gem"></i> Accéder maintenant
             </a>
         </div>
     </section>
@@ -796,26 +897,31 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://www.quora.com/about/privacy" class="footer-link">Conditions générales</a>
-                <a href="https://www.quora.com/about/tos" class="footer-link">Politique de confidentialité</a>
+                <a href="https://www.quora.com/about/privacy" class="footer-link">Confidentialité</a>
+                <a href="https://www.quora.com/about/tos" class="footer-link">Conditions</a>
                 <a href="https://help.quora.com/hc/fr" class="footer-link">FAQ</a>
-                <a href="https://help.quora.com/hc/fr" class="footer-link">Help</a>
+                <a href="https://help.quora.com/hc/fr" class="footer-link">Contact</a>
             </div>
-            <p class="copyright">© 2023 QuoraOffre. Tous droits réservés. Cette promotion n'est pas affiliée à Apple Inc. iPhone est une marque déposée d'Apple Inc.</p>
+            <p class="copyright">© 2023 QuoraRewards. Non affilié à Quora ou aux marques mentionnées. Les récompenses sont offertes par nos partenaires.</p>
         </div>
     </footer>
 
-    <!-- Nouvelle version améliorée de la notification -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="https://www.cpagrip.com/smartlink.php?source=quora" style="color: white; text-decoration: none;">
+            <i class="fas fa-gift"></i> Voir les offres (30 secondes)
+        </a>
+    </div>
+
     <div class="notification" id="notification">
         <div class="notification-pulse"></div>
         <div class="notification-icon">
-            <i class="fas fa-gift"></i>
+            <i class="fas fa-bolt"></i>
         </div>
         <div class="notification-content">
-            <h4>🎁 Dernière chance pour votre iPhone 16 Pro !</h4>
-            <p>Seulement 3 appareils disponibles pour les utilisateurs Quora aujourd'hui. Ne manquez pas cette opportunité exclusive !</p>
-            <a href="https://masenkotrkr.com/lena" class="notification-btn">
-                Je le veux ! <i class="fas fa-arrow-right"></i>
+            <h4>⚡ Dernières offres disponibles !</h4>
+            <p>3 cartes Amazon viennent d'être ajoutées pour les utilisateurs Quora. Cliquez avant qu'elles ne partent !</p>
+            <a href="https://www.cpagrip.com/smartlink.php?source=quora" class="notification-btn">
+                Je participe <i class="fas fa-arrow-right"></i>
             </a>
         </div>
         <button class="notification-close" id="closeNotification">
@@ -823,54 +929,71 @@
         </button>
     </div>
 
-    <!-- Exit Intent Popup -->
     <div class="exit-popup" id="exitPopup">
         <div class="exit-popup-content">
             <button class="exit-popup-close" id="closePopup">
                 <i class="fas fa-times"></i>
             </button>
-            <h3>Attendez ! Dernière chance 🎁</h3>
-            <p>Vous êtes sur le point de quitter sans réclamer votre iPhone 16 Pro. Les stocks sont presque épuisés - confirmez votre participation maintenant !</p>
-            <a href="https://masenkotrkr.com/lena" class="btn btn-primary btn-large">
-                Je veux mon iPhone
+            <h3>Votre récompense vous attend !</h3>
+            <p>Vous êtes sur le point de quitter sans réclamer votre cadeau. Les offres sont limitées - confirmez votre participation maintenant.</p>
+            <a href="https://www.cpagrip.com/smartlink.php?source=quora" class="btn btn-primary btn-large">
+                <i class="fas fa-gem"></i> Je veux ma récompense
             </a>
         </div>
     </div>
 
     <script>
-        // Countdown Timer
-        function startCountdown() {
-            let timeLeft = 5 * 60; // 5 minutes in seconds
-            const countdownElement = document.getElementById('countdown');
-            
+        // Animated Counter
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
             const timer = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                
-                countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (timeLeft <= 0) {
+                current += increment;
+                if (current >= target) {
                     clearInterval(timer);
-                    countdownElement.textContent = "00:00";
-                } else {
-                    timeLeft--;
+                    current = target;
                 }
-            }, 1000);
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
         }
-        
-        // Nouvelle version améliorée de la fonction showNotification
+
+        // Random Counter Animation
+        function updateRandomCounters() {
+            setInterval(() => {
+                document.getElementById('counter1').textContent = Math.floor(10 + Math.random() * 15);
+                document.getElementById('counter2').textContent = Math.floor(30 + Math.random() * 40);
+                document.getElementById('counter3').textContent = Math.floor(20 + Math.random() * 30);
+            }, 5000);
+        }
+
+        // Participants Count
+        function updateParticipantsCount() {
+            const baseCount = 1247;
+            const countElement = document.getElementById('participantsCount');
+            
+            // Increment every 10 seconds
+            setInterval(() => {
+                const current = parseInt(countElement.textContent.replace(/,/g, ''));
+                countElement.textContent = (current + 1).toLocaleString();
+            }, 10000);
+            
+            // Initial animation
+            animateCounter(countElement, baseCount);
+        }
+
+        // Show Notification
         function showNotification() {
             setTimeout(() => {
                 const notification = document.getElementById('notification');
                 
-                // Vérifier si l'utilisateur n'a pas déjà fermé la notification
                 if (!localStorage.getItem('notificationClosed')) {
                     notification.style.display = 'flex';
                     setTimeout(() => {
                         notification.classList.add('show');
                     }, 100);
                     
-                    // Animation de balancement après 3 secondes
+                    // Swing effect
                     setTimeout(() => {
                         notification.style.transform = 'translateX(0) rotate(-2deg)';
                         setTimeout(() => {
@@ -881,23 +1004,21 @@
                         }, 200);
                     }, 3000);
                 }
-            }, 5000);
+            }, 8000);
         }
-        
-        // Fermeture améliorée de la notification
+
+        // Close Notification
         document.getElementById('closeNotification').addEventListener('click', function() {
             const notification = document.getElementById('notification');
             notification.classList.remove('show');
             notification.style.animation = 'slideOutRight 0.6s forwards';
-            
-            // Stocker en localStorage que l'utilisateur a fermé la notification
             localStorage.setItem('notificationClosed', 'true');
             
             setTimeout(() => {
                 notification.style.display = 'none';
             }, 600);
         });
-        
+
         // Exit Intent Popup
         function setupExitIntent() {
             let mouseY = 0;
@@ -908,22 +1029,31 @@
                 }
                 mouseY = e.clientY;
             });
-            
-            
         }
         
         function showExitPopup() {
-            const popup = document.getElementById('exitPopup');
-            popup.classList.add('show');
-            document.body.style.overflow = 'hidden';
+            if (!localStorage.getItem('exitPopupShown')) {
+                const popup = document.getElementById('exitPopup');
+                popup.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                localStorage.setItem('exitPopupShown', 'true');
+            }
         }
         
         document.getElementById('closePopup').addEventListener('click', function() {
             document.getElementById('exitPopup').classList.remove('show');
             document.body.style.overflow = '';
         });
-        
-        // Smooth scrolling for anchor links
+
+        // Floating CTA
+        function showFloatingCTA() {
+            setTimeout(() => {
+                const floatingCta = document.getElementById('floatingCta');
+                floatingCta.classList.add('show');
+            }, 15000);
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -939,14 +1069,22 @@
                 }
             });
         });
-        
-        // Initialize everything when DOM is loaded
+
+        // Main CTA Click Tracking
+        document.getElementById('mainCta').addEventListener('click', function() {
+            // Ici tu peux ajouter un pixel de tracking si besoin
+            localStorage.setItem('hasClickedCTA', 'true');
+        });
+
+        // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
-            startCountdown();
+            updateParticipantsCount();
+            updateRandomCounters();
             showNotification();
             setupExitIntent();
+            showFloatingCTA();
             
-            // Animate elements when they come into view
+            // Animate elements on scroll
             const animateOnScroll = () => {
                 const elements = document.querySelectorAll('.feature-card, .step');
                 
@@ -961,7 +1099,7 @@
                 });
             };
             
-            // Set initial state for animated elements
+            // Set initial state
             document.querySelectorAll('.feature-card, .step').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
@@ -969,7 +1107,7 @@
             });
             
             window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on load
+            animateOnScroll();
         });
     </script>
 </body>
